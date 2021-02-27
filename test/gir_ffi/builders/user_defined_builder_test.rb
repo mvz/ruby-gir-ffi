@@ -474,7 +474,7 @@ describe GirFFI::Builders::UserDefinedBuilder do
       end
     end
 
-    describe "when using a default vfunc implementation" do
+    describe "when defining a vfunc using a method" do
       let(:base_class) { Regress::TestObj }
       let(:info) do
         GirFFI::UserDefinedObjectInfo.new derived_class do |it|

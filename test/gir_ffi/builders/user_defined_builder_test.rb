@@ -496,6 +496,19 @@ describe GirFFI::Builders::UserDefinedBuilder do
       end
     end
 
+    describe "when using the default implementation of a vfunc" do
+      let(:base_class) { Regress::TestObj }
+      let(:info) do
+        GirFFI::UserDefinedObjectInfo.new derived_class do |it|
+        end
+      end
+
+      it "allows the vfunc to be called through its invoker" do
+        obj = derived_class.new
+        _(obj.do_matrix("bar")).must_equal 42
+      end
+    end
+
     describe "with type info containing a vfunc from an included Interface" do
       let(:info) do
         derived_class.class_eval { include GIMarshallingTests::Interface }

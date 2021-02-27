@@ -464,13 +464,13 @@ describe GirFFI::Builders::UserDefinedBuilder do
       let(:base_class) { Regress::TestObj }
       let(:info) do
         GirFFI::UserDefinedObjectInfo.new derived_class do |it|
-          it.install_vfunc_implementation :matrix, ->(_obj, *_args) { 44 }
+          it.install_vfunc_implementation :matrix, ->(_obj, *_args) { 523446 }
         end
       end
 
       it "allows the vfunc to be called through its invoker" do
         obj = derived_class.new
-        _(obj.do_matrix("bar")).must_equal 44
+        _(obj.do_matrix("bar")).must_equal 46
       end
     end
 
